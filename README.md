@@ -4,8 +4,8 @@
 
 <ul>
   <li>```
-    useFetch
-    ```</li>
+useFetch
+```</li>
   <li>```
     useLocalStorage
     ```</li>
