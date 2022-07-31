@@ -6,7 +6,7 @@ const useToggle = (
 	const [value, setValue] = useState(defaultValue)
 
 	const toggleValue = (value: boolean) => {
-		setValue(!value)
+		setValue(value)
 	}
 
 	return [value, toggleValue]
