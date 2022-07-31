@@ -7,3 +7,4 @@
 * *```useLocalStorage```*
 * *```useForm```*
 * *```useToggle```*
+* *```useArray```*
