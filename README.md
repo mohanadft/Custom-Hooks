@@ -6,3 +6,4 @@
 * *```useFetch```*
 * *```useLocalStorage```*
 * *```useForm```*
+* *```useToggle```*
