@@ -4,7 +4,7 @@ const useLocalStorage = <T>(
 	key: string,
 	defaultValue: T
 ): [T, (newValue: T) => void] => {
-	const [storderValue, setStorderValue] = useState<T>(() => {
+	const [storedValue, setStoredValue] = useState<T>(() => {
 		if (localStorage.getItem(key)) {
 			return JSON.parse(localStorage.getItem(key)!)
 		}
@@ -12,15 +12,15 @@ const useLocalStorage = <T>(
 	})
 
 	useEffect(() => {
-		localStorage.setItem(key, JSON.stringify(storderValue))
-	}, [storderValue])
+		localStorage.setItem(key, JSON.stringify(storedValue))
+	}, [storedValue])
 
 	const setValue = (newValue: T) => {
 		if (newValue) {
-			setStorderValue(newValue)
+			setStoredValue(newValue)
 		}
 	}
-	return [storderValue, setValue]
+	return [storedValue, setValue]
 }
 
 export default useLocalStorage
