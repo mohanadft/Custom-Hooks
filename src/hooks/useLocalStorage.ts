@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 const useLocalStorage = <T>(
 	key: string,
 	defaultValue: T
-): [T, (newValue: T) => void] => {
+): [T, (newValue: T) => void, () => void] => {
 	const [storedValue, setStoredValue] = useState<T>(() => {
 		if (localStorage.getItem(key)) {
 			return JSON.parse(localStorage.getItem(key)!)
@@ -20,7 +20,13 @@ const useLocalStorage = <T>(
 			setStoredValue(newValue)
 		}
 	}
-	return [storedValue, setValue]
+
+	const removeValue = () => {
+		localStorage.removeItem(key)
+		setStoredValue(undefined)
+	}
+
+	return [storedValue, setValue, removeValue]
 }
 
 export default useLocalStorage
